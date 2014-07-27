@@ -1,0 +1,15 @@
+<h1>Posts</h1>
+
+<ul>
+  <% @posts.each do |post| %>
+  <li class="no_bullets post_title" data-post-id="<%=post.id%>"><%= post.title %> </li>
+  <li class="no_bullets"><a class="edit_button">(edit)</a></li>
+  <li class="no_bullets content"><%= post.content %></li>
+  <li class="no_bullets edit_form"><%= render partial: 'edit_form', locals: {post: post} %></li>
+  <li class="no_bullets"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+    <% end %>
+</ul>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

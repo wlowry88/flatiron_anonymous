@@ -1,0 +1,4 @@
+$li = $("li[data-post-id=<%= @post.id %>]");
+$li.next().next().text("<%=j @post.content %>");
+$li.text("<%=j @post.title %>");
+$(".edit_form").slideUp();
