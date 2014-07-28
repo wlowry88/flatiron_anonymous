@@ -12,11 +12,11 @@
     <% end %>
 
     <div class="field">
-      <%= f.label :title %><br>
+      <%= f.label :title, class: "h4" %><br>
       <%= f.text_field :title %>
     </div>
     <div class="field">
-      <%= f.label :content %><br>
+      <%= f.label :content, class: "h4" %><br>
       <%= f.text_area :content %>
     </div>
     <%= f.hidden_field :user_id, value: session[:id] %>

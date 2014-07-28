@@ -1,17 +1,17 @@
 <p id="notice"><%= flash[:notice] %></p>
 <p id="notice"><%= flash[:success] %></p>
 <p id="notice"><%= flash[:error] %></p>
-<h1><strong>Posts</strong></h1>
+<h1>Posts</h1>
 
 <ul>
   <div class="new_post_form">
-  <li class="no_bullets"><h3><a class="show_new_form">Write a New Post:</a></h3></li>
+  <li class="no_bullets"><h4><a class="show_new_form">Write a New Post:</a></h3></li>
   <li class="no_bullets new_form"><%= render partial: 'new_form' %></li>
   </div>
     <% @posts.order("created_at DESC").each do |post| %>
       <div class= "post" id="post-<%= post.id %>" >
       <li class="no_bullets post_title" data-post-id="<%=post.id%>">
-        <strong><%= post.title %></strong><p>by <%= link_to post.user.name, post.user %></p></li>
+        <h2><%= post.title %></h2><p>by <%= link_to post.user.name, post.user %></p></li>
       <li class="no_bullets"><a class="show_button">Show Full</a>
         <%= link_to "| Edit", "",class: "edit_button" if post.user == current_user %>
         <%= link_to '| Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user %>
