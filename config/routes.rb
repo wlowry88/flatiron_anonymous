@@ -4,9 +4,8 @@ Rails.application.routes.draw do
 
   get 'static_pages/login'
 
-  resources :posts do 
-    resources :comments
-  end
+  resources :comments, only: [:create, :destroy]
+  resources :posts
 
   get '/login', to: 'static_pages#index'
   get '/signup', to: 'users#new'

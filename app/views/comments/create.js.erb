@@ -1,0 +1,1 @@
+$("#post-<%= @comment.post_id %>").find("li.comments_li ul li").last().before("<%=j render 'comment' %>");

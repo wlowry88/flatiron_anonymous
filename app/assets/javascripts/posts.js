@@ -1,11 +1,18 @@
 $(document).ready(function() {
-$(".edit_form").hide();
-$(".new_form").hide();
+  $(".edit_form").hide();
+  $(".new_form").hide();
   $(".full_content").hide();
+  $(".comments_ul").hide();
 
   $(".edit_button").on('click', function(e){
   	e.preventDefault();
   	$(this).parent().next().next().next().slideToggle();	
+  })
+
+
+  $(".comment_show").on('click', function(e){
+    e.preventDefault();
+    $(this).next("ul").slideToggle();
   })
 
   $(".show_new_form").on('click', function(e){
@@ -16,6 +23,6 @@ $(".new_form").hide();
   $(".show_button").on('click', function(e){
   	e.preventDefault();
   	$(this).parent().next().next().slideToggle();	
-  	$(".preview_content").slideToggle();
+  	$(this).parent().next().slideToggle();
   });
 });

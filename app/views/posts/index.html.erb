@@ -8,18 +8,29 @@
   <li class="no_bullets"><a class="show_new_form">Write a New Post</a></li>
   <li class="no_bullets new_form"><%= render partial: 'new_form' %></li>
   </div>
-  <% @posts.each do |post| %>
-  <div class= "container">
-  <li class="no_bullets post_title" data-post-id="<%=post.id%>"><%= post.title %> by <%= link_to post.user.name, post.user %></li>
-  <li class="no_bullets"><a class="show_button">Show Full</a>
-  <%= link_to "| Edit", "",class: "edit_button" if post.user == current_user %>
-  <%= link_to '| Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user %>
-    </li>
-  <li class="no_bullets preview_content"><%= "#{post.content[0,140]}..." %></li>
-  <li class="no_bullets full_content"><%= post.content %></li>
-  <li class="no_bullets edit_form"><%= render partial: 'edit_form', locals: {post: post} %></li>
-<br>
-  </div>
+    <% @posts.order("created_at DESC").each do |post| %>
+      <div class= "post" id="post-<%= post.id %>" >
+      <li class="no_bullets post_title" data-post-id="<%=post.id%>">
+        <%= post.title %> by <%= link_to post.user.name, post.user %></li>
+      <li class="no_bullets"><a class="show_button">Show Full</a>
+        <%= link_to "| Edit", "",class: "edit_button" if post.user == current_user %>
+        <%= link_to '| Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user %>
+      </li>
+      <li class="no_bullets preview_content"><p class="post_div"><%= "#{post.content[0,140]}..." %><p></li>
+      <li class="no_bullets full_content"><p class="post_div"><%= post.content %></p></li>
+      <li class="no_bullets edit_form"><%= render partial: 'edit_form', locals: {post: post} %></li>
+      <li class="comments_li no_bullets">
+      <a class="comment_show" href="">Show Comments:</a>
+        <ul class="comments_ul">
+          <% post.comments.each do |comment| %>
+            <li class="no_bullets"><%="#{comment.user.name}: #{comment.content}" %> </li>
+          <% end %>
+            <li class="no_bullets"><%= render partial: 'comment_form', locals: {post: post} %>
+            </li>
+        </ul>
+      </li>
+    <br>
+      </div>
     <% end %>
 </ul>
 

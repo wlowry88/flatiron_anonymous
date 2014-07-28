@@ -6318,3 +6318,8 @@ table .info a,
   bottom:0;
   width:100%;
 }
+
+.post_div { 
+  width: 100%; 
+  word-wrap: break-word; 
+}

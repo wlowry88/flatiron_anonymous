@@ -18,8 +18,8 @@
     <%= f.label :content %><br>
     <%= f.text_area :content %><br>
     <%= f.hidden_field :post_id, :value => @post.id %>
+    <%= f.hidden_field :user_id, value: session[:id] %>
   </div>
-
   <div class="actions">
     <%= f.submit %>
 <% end %>

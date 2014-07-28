@@ -1,7 +1,7 @@
 
 $li = $("li[data-post-id=<%= @post.id %>]");
-$li.next().next().text("<%=j @post.content %>");
+$li.next().next().next().text("<%=j @post.content %>");
 $li.text("<%=j @post.title %>");
 $(".edit_form").slideUp();
-$(".full_content").hide();
-$(".preview_content").text("<%=j @post.content[0,140] %>");
+$(".full_content").slideUp();
+$li.next().next().text('<%=j "#{@post.content[0,140]}..." %>');
