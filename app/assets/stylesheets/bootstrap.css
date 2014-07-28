@@ -6310,3 +6310,12 @@ table .info a,
 .popover {
   color: #333333;
 }
+.layout_footer {
+  margin-bottom: 0px;
+  height: 50px;
+  position: absolute;
+  margin-top: 30px;
+  background-color: black;
+  bottom:0;
+  width:100%;
+}
