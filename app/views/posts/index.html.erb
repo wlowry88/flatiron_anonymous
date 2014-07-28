@@ -1,17 +1,17 @@
 <p id="notice"><%= flash[:notice] %></p>
 <p id="notice"><%= flash[:success] %></p>
 <p id="notice"><%= flash[:error] %></p>
-<h1>Posts</h1>
+<h1><strong>Posts</strong></h1>
 
 <ul>
-  <div class="container">
-  <li class="no_bullets"><a class="show_new_form">Write a New Post</a></li>
+  <div class="new_post_form">
+  <li class="no_bullets"><h3><a class="show_new_form">Write a New Post:</a></h3></li>
   <li class="no_bullets new_form"><%= render partial: 'new_form' %></li>
   </div>
     <% @posts.order("created_at DESC").each do |post| %>
       <div class= "post" id="post-<%= post.id %>" >
       <li class="no_bullets post_title" data-post-id="<%=post.id%>">
-        <%= post.title %> by <%= link_to post.user.name, post.user %></li>
+        <strong><%= post.title %></strong><p>by <%= link_to post.user.name, post.user %></p></li>
       <li class="no_bullets"><a class="show_button">Show Full</a>
         <%= link_to "| Edit", "",class: "edit_button" if post.user == current_user %>
         <%= link_to '| Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user %>
@@ -20,7 +20,7 @@
       <li class="no_bullets full_content"><p class="post_div"><%= post.content %></p></li>
       <li class="no_bullets edit_form"><%= render partial: 'edit_form', locals: {post: post} %></li>
       <li class="comments_li no_bullets">
-      <a class="comment_show" href="">Show Comments:</a>
+      <button class="comment_show btn btn-default btn-xs">Show Comments:</button>
         <ul class="comments_ul">
           <% post.comments.each do |comment| %>
             <li class="no_bullets"><%="#{comment.user.name}: #{comment.content}" %> </li>

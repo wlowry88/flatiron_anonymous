@@ -1,10 +1,10 @@
 <%= form_for Comment.new, remote: true do |f| %>
   <div class="field">
-    <%= f.label :content %><br>
+    <%= f.label :content, "Add Comment:", class: "h4" %><br>
     <%= f.text_area :content %><br>
     <%= f.hidden_field :post_id, :value => post.id %>
     <%= f.hidden_field :user_id, value: session[:id] %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default btn-sm" %>
 <% end %>
