@@ -1,6 +1,13 @@
-
+<p id="notice"><%= flash[:notice] %></p>
+<p id="notice"><%= flash[:success] %></p>
+<p id="notice"><%= flash[:error] %></p>
 <h1>Posts</h1>
+
 <ul>
+  <div class="container">
+  <li class="no_bullets"><a class="show_new_form">Write a New Post</a></li>
+  <li class="no_bullets new_form"><%= render partial: 'new_form' %></li>
+  </div>
   <% @posts.each do |post| %>
   <div class= "container">
   <li class="no_bullets post_title" data-post-id="<%=post.id%>"><%= post.title %> by <%= link_to post.user.name, post.user %></li>
@@ -17,4 +24,4 @@
 </ul>
 
 
-<%= link_to 'New Post', new_post_path %>
+
