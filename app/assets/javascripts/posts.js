@@ -1,7 +1,6 @@
-$(function(){
-	$(".edit_form").hide();
-
-	$(".full_content").hide();
+$(document).ready(function() {
+$(".edit_form").hide();
+  $(".full_content").hide();
 
   $(".edit_button").on('click', function(e){
   	e.preventDefault();
@@ -10,7 +9,7 @@ $(function(){
 
   $(".show_button").on('click', function(e){
   	e.preventDefault();
-  	$(".preview_content").toggle();
   	$(this).parent().next().next().slideToggle();	
+  	$(".preview_content").slideToggle();
   });
 });
