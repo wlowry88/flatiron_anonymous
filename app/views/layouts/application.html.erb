@@ -13,6 +13,8 @@
     	<li id="welcome_text"><%= "Neigh, #{current_user.name}!" if logged_in? %></li>
       <li><%= link_to("Sign Up", signup_path) if !logged_in? %></li>
       <li><%= link_to("Log In", login_path) if !logged_in? %></li>
+      <li><%= link_to "Posts", posts_path if logged_in? %></li>
+      <li><%= link_to "Horses", users_path if logged_in? %></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><%= link_to "Log Out", signout_path if logged_in? %></li>

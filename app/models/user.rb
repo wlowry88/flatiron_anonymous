@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
 		!!self.approved
 	end
 
+	def admin?
+		!!self.admin
+	end
+
 end

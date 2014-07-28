@@ -3917,7 +3917,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-nav > li > a {
   padding-top: 10px;
   padding-bottom: 10px;
-  line-height: 21px;
+
 }
 @media (max-width: 767px) {
   .navbar-nav .open .dropdown-menu {
@@ -3934,7 +3934,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     padding: 5px 15px 5px 25px;
   }
   .navbar-nav .open .dropdown-menu > li > a {
-    line-height: 21px;
   }
   .navbar-nav .open .dropdown-menu > li > a:hover,
   .navbar-nav .open .dropdown-menu > li > a:focus {
@@ -4097,6 +4096,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 #welcome_text {
   color: #ffffff;
   padding-top: 14.5px;
+  padding-bottom: 14.5px;
 }
 .navbar-default .navbar-nav > li > a {
   color: #ffffff;
