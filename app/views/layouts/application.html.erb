@@ -7,16 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<nav>
-<%= link_to("Sign Up", signup_path) if !logged_in? %>
-<%= link_to("Log In", login_path) if !logged_in? %>
-<%= "Hello, #{User.find(session[:id]).name}!" if logged_in? %> 
-<%= link_to "Log Out", signout_path if logged_in? %>
-
-</nav>
-
+<div class="navbar navbar-default">
+  <div class="navbar-collapse collapse navbar-responsive-collapse">
+    <ul class="nav navbar-nav">
+    	<li id="welcome_text"><%= "Neigh, #{current_user.name}!" if logged_in? %></li>
+      <li><%= link_to("Sign Up", signup_path) if !logged_in? %></li>
+      <li><%= link_to("Log In", login_path) if !logged_in? %></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><%= link_to "Log Out", signout_path if logged_in? %></li>
+    </ul>
+  </div>
+</div>
+<div class="container">
 <%= yield %>
-
+</div>
 </body>
 </html>

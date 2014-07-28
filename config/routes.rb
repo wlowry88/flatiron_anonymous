@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get '/login', to: 'sessions#new'
+  get '/login', to: 'static_pages#index'
   get '/signup', to: 'users#new'
   get '/signout', to: 'sessions#destroy'
   post '/sessions', to: 'sessions#create'

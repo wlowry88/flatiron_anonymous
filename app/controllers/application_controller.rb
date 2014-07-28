@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   private
 
   def authentication_required
-    redirect_to login_path, notice: 'Log in to edit or delete your Post' if !logged_in?
+    redirect_to root_path, notice: 'Log in to edit or delete your Post' if !logged_in?
   end
 
   helper_method def logged_in?

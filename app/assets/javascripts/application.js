@@ -13,5 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require posts.js
+//= require homepage.js
 //= require turbolinks
 //= require_tree .

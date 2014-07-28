@@ -1,3 +1,17 @@
-<h1>GB's</h1>
+<div class="row text-center">
+<%= image_tag("horse.png", width: "600px") %>
 
+<div class="container">
+<%= form_tag sessions_path, :class=>"form-horizontal" do %>
 
+<%= label_tag :email %>
+<%= text_field_tag :email %>
+
+<%= label_tag :password %>
+<%= text_field_tag :password %>
+
+<%= submit_tag "Log In" %>
+<% end %>
+</div>
+
+</div>

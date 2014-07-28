@@ -2,11 +2,17 @@
 
 <ul>
   <% @posts.each do |post| %>
-  <li class="no_bullets post_title" data-post-id="<%=post.id%>"><%= post.title %> </li>
-  <li class="no_bullets"><a class="edit_button">(edit)</a></li>
-  <li class="no_bullets content"><%= post.content %></li>
+  <div class= "container">
+  <li class="no_bullets post_title" data-post-id="<%=post.id%>"><%= post.title %> by <%= link_to post.user.name, post.user %></li>
+  <li class="no_bullets"><a class="show_button">Show Full</a>
+  <%= link_to "| Edit", "",class: "edit_button" if post.user == current_user %>
+  <%= link_to '| Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user %>
+    </li>
+  <li class="no_bullets preview_content"><%= "#{post.content[0,140]}..." %></li>
+  <li class="no_bullets full_content"><%= post.content %></li>
   <li class="no_bullets edit_form"><%= render partial: 'edit_form', locals: {post: post} %></li>
-  <li class="no_bullets"><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+<br>
+  </div>
     <% end %>
 </ul>
 
