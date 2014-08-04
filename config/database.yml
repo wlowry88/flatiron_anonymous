@@ -1,16 +1,16 @@
 development:
   adapter: postgresql
-  database: ajax_blog_development
+  database: flatiron_confessional_development
   pool: 5
   timeout: 5000
 test:
   adapter: postgresql
-  database: ajax_blog_test
+  database: flatiron_confessional_test
   pool: 5
   timeout: 5000
 
 production:
   adapter: postgresql
-  database: ajax_blog_production
+  database: flatiron_confessional_production
   pool: 5
   timeout: 5000
