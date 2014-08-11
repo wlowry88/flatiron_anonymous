@@ -3,37 +3,53 @@
 <p id="notice"><%= flash[:error] %></p>
 <h1>Posts</h1>
 
-<ul>
-  <div class="new_post_form">
-  <li class="no_bullets"><h4><a class="show_new_form">Write a New Post:</a></h3></li>
-  <li class="no_bullets new_form"><%= render partial: 'new_form' %></li>
-  </div>
-    <% @posts.order("created_at DESC").each do |post| %>
-      <div class= "post" id="post-<%= post.id %>" >
-      <li class="no_bullets post_title" data-post-id="<%=post.id%>">
-        <h2><%= post.title %></h2><p class="author">by <%= link_to post.user.name, post.user %></p></li>
-      <li class="no_bullets buttons">
-          <a class="show_button">Show Full</a>
-          <%= link_to "  |   Edit", "", class: "edit_button" if post.user == current_user %>
-          <%= link_to '|   Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user %>
-      </li>
-      <li class="no_bullets preview_content"><p class="post_div"><em><%= "#{post.content[0,140]}..." %></em><p></li>
-      <li class="no_bullets full_content"><p class="post_div"><%= post.content %></p></li>
-      <li class="no_bullets edit_form"><%= render partial: 'edit_form', locals: {post: post} %></li>
-      <li class="comments_li no_bullets">
-      <button class="comment_show btn btn-default btn-xs">Show Comments:</button>
+<p>
+  <h4><a class="show_new_form">Write a New Post:</a></h4>
+</p>
+<div class="new_post_form">
+  <%= render partial: 'new_form' %>  
+</div>
+
+<div id="posts_div">
+  <% @posts.order("created_at DESC").each do |post| %>
+    <div class= "post" id="post-<%= post.id %>" >
+      <p class="post_title" data-post-id="<%=post.id%>">
+        <h2><%= post.title %></h2>
+        <p class="author">by <%= link_to post.user.name, post.user %></p>
+      </p>
+      <p class="buttons">
+        <a class="show_button">Show Full</a>
+        <%= link_to "  |   Edit", "", class: "edit_button" if post.user == current_user %>
+        <%= link_to '|   Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } if post.user == current_user %>
+      </p>
+      <p class="preview_content">
+        <em><%= "#{post.content[0,140]}..." %></em>
+      </p>
+      <p class="full_content">
+        <%= post.content %>
+      </p>
+      <div class="edit_form">
+        <%= render partial: 'edit_form', locals: {post: post} %>
+      </div>
+      <div class="comments">
+        <button class="comment_show btn btn-default btn-xs">
+          Show Comments:
+        </button>
         <ul class="comments_ul">
           <% post.comments.each do |comment| %>
-            <li class="no_bullets"><%="#{comment.user.name}: #{comment.content}" %> </li>
+            <li class="no_bullets">
+              <%="#{comment.user.name}: #{comment.content}" %>
+            </li>
           <% end %>
-            <li class="no_bullets"><%= render partial: 'comment_form', locals: {post: post} %>
+            <li class="no_bullets coment_form">
+              <%= render partial: 'comment_form', locals: {post: post} %>
             </li>
         </ul>
-      </li>
-    <br>
       </div>
-    <% end %>
-</ul>
+    </div>
+  <% end %>
+</div>
+
 
 
 

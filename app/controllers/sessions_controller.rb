@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
 	def create
 		@user = User.find_by(:email => params[:email])
-		if @user && @user.authenticate(params[:password]) && @user.approved?
+		if @user && @user.authenticate(params[:password])
 			session[:id] = @user.id
 			redirect_to posts_path
 		else

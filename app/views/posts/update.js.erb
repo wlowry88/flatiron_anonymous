@@ -1,8 +1,3 @@
-
-$li = $("li[data-post-id=<%= @post.id %>]");
-$li.next().next().next().text("<%=j @post.content %>");
-$li.next().next().next().addClass("post_div");
-$li.find("h2").text("<%=j @post.title %>");
-$(".edit_form").slideUp();
-$(".full_content").slideUp();
-$li.next().next().text('<%=j "#{@post.content[0,140]}..." %>');
+$post = $("#post-<%= @post.id %>");
+$post.find("h2").text("<%= @post.title %>");
+$post.find(".preview_content").text("<%=j @post.content %>").css("font-style", "italic")

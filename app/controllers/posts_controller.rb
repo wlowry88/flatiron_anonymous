@@ -29,14 +29,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to posts_path 
-      flash[:success]='Post was successfully created.'
-
-    else
-      redirect_to posts_path
-      flash[:error]='Post failed to save'
-    end
+    @post.save
   end
 
   # PATCH/PUT /posts/1
