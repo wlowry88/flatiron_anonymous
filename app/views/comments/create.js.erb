@@ -1,2 +1,2 @@
 $post = $("#post-<%=@comment.post.id%>")
-$post.find("ul p").parent().find(".comment_form").prev().after("<%=j render partial: 'comment', locals: {comment: @comment} %>")
+$post.find("ul p").parent().after("<%=j render partial: 'comment', locals: {comment: @comment} %>")
