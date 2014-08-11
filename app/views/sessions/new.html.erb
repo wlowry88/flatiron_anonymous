@@ -1,5 +1,4 @@
-<div class="container">
-<%= form_tag sessions_path, :class=>"form-horizontal" do %>
+<%= form_tag sessions_path, :class=>"form-horizontal login_form" do %>
 
 <%= label_tag :email %>
 <%= text_field_tag :email %>
@@ -9,5 +8,5 @@
 
 <%= submit_tag "Log In" %>
 <% end %>
-</div>
+
 

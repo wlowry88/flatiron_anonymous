@@ -76,3 +76,28 @@ div {
     list-style: square;
   }
 }
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -50px;
+}
+.layout_footer, .push {
+  height: 50px; /* .push must be the same height as .footer */
+}
+
+.post_page {
+  margin-bottom: 60px;
+}
+
+.login_form {
+  padding-top: 300px;
+  text-align: center;
+}
