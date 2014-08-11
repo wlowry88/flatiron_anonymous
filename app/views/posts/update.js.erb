@@ -1,3 +1,5 @@
 $post = $("#post-<%= @post.id %>");
 $post.find("h2").text("<%= @post.title %>");
-$post.find(".preview_content").text("<%=j @post.content %>").css("font-style", "italic")
+$post.find(".preview_content").text("<%=j @post.content[0..140] %>").css("font-style", "italic")
+$post.find(".full_content").text("<%=j @post.content %>")
+$post.find(".edit_form").slideToggle();

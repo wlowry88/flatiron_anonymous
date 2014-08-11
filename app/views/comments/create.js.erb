@@ -1,1 +1,2 @@
-$("#post-<%= @comment.post_id %>").find("li.comments_li ul li").last().before("<%=j render 'comment' %>");
+$post = $("#post-<%=@comment.post.id%>")
+$post.find("ul p").first().before("<%=j render partial: 'comment', locals: {comment: @comment} %>")

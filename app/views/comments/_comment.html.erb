@@ -1,1 +1,3 @@
-<li class="no_bullets"><%= "#{@comment.user.name}: #{@comment.content}"%></li>
+<p>
+	<%= link_to comment.user.name, comment.user %>: <%= comment.content %>
+</p>

@@ -35,16 +35,18 @@
         <button class="comment_show btn btn-default btn-xs">
           Show Comments:
         </button>
-        <ul class="comments_ul">
-          <% post.comments.each do |comment| %>
-            <li class="no_bullets">
-              <%="#{comment.user.name}: #{comment.content}" %>
-            </li>
-          <% end %>
-            <li class="no_bullets coment_form">
-              <%= render partial: 'comment_form', locals: {post: post} %>
-            </li>
-        </ul>
+        <p>
+          <ul class="comments_ul">
+            <% post.comments.each do |comment| %>
+              <p>
+                <%= link_to comment.user.name, comment.user %>: <%= comment.content %>
+              </p>
+            <% end %>
+              <p class="comment_form">
+                <%= render partial: 'comment_form', locals: {post: post} %>
+              </p>
+          </ul>
+        </p>
       </div>
     </div>
   <% end %>
