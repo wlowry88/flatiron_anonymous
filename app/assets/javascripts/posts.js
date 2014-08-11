@@ -11,8 +11,13 @@ $(document).ready(function() {
 
   $("#posts_div").on('click', ".comment_show", function(e){
     e.preventDefault();
+    $(this).text(function(){
+      if($(this).text().trim()==="Show Comments:"){
+        return "Hide Comments:"; }
+      else { return "Show Comments:"; }
+    });
     $(this).parent().find(".comments_ul").slideToggle();
-  })
+  });
 
   $(".show_new_form").on('click', function(e){
     e.preventDefault();
