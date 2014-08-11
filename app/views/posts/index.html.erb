@@ -37,8 +37,8 @@
           <button class="comment_show btn btn-default btn-xs">
             Show Comments:
           </button>
-          <p>
             <ul class="comments_ul">
+          <p class="pre-comments">
               <% post.comments.each do |comment| %>
                 <p>
                   <%= link_to comment.user.name, comment.user %>: <%= comment.content %>
