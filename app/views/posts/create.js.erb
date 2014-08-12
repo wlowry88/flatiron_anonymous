@@ -2,5 +2,7 @@ $("#posts_div").prepend("<%=j render 'new_post', locals: {post: @post} %>");
 
 $(".edit_form").hide();
 $(".new_post_form").hide();
+$("#post_title").val("");
+$("#post_content").val("");
 $(".full_content").hide();
 $(".comments_ul").hide();

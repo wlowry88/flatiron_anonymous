@@ -8,14 +8,14 @@ Rails.application.routes.draw do
   resources :posts
 
   get '/login', to: 'static_pages#index'
-  get '/signup', to: 'users#new'
+  get '/signup', to: 'static_pages#signup'
   get '/signout', to: 'sessions#destroy'
   post '/sessions', to: 'sessions#create'
   
   root 'static_pages#index'
     
 
-  resources :users
+  resources :users, only: [:create, :update, :show, :index, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
